@@ -1,0 +1,148 @@
+<vex-page-layout>
+
+    <vex-page-layout-header class="pb-16  flex flex-col items-start justify-center">
+      <div class="w-full flex flex-col sm:flex-row justify-between">
+        <div>
+          <h1 class="title mt-0 mb-1">Batch Payment Request</h1>
+          <vex-breadcrumbs [crumbs]="['Apps', 'Payment Request', 'Batch Payment']"></vex-breadcrumbs>
+        </div>
+      </div>
+    </vex-page-layout-header>
+  
+    <vex-page-layout-content class="-mt-6 ">
+        <div class="card overflow-auto -mt-16 pb-8">
+            <div class="bg-app-bar px-6 h-16 border-b sticky left-0 flex items-center">
+                <h2 class="title my-0 ltr:pr-4 rtl:pl-4 ltr:mr-4 rtl:ml-4 ltr:border-r rtl:border-l hidden sm:block flex-none">
+                  Upload Batch Request
+                </h2>
+            </div>
+            
+            <mat-stepper #stepper>
+                <mat-step>
+                    <ng-template matStepLabel>Upload File</ng-template>
+                    <ng-template matStepContent>
+                        <div class="flex justify-center items-center mt-2">
+                            <label class="drop-container">
+                                <span class="drop-title">Drop files here</span>
+                                or
+                                <input type="file" (change)="dropped($event)" accept="xlsx/*" required>
+                            </label>
+                        </div>
+                        <div class="text-right">
+                            <button mat-raised-button color="primary" matStepperNext>Proceed</button>
+                        </div>
+                    </ng-template>
+                </mat-step>
+                <mat-step >
+                    <ng-template matStepLabel>Mapping</ng-template>
+                    <ng-template matStepContent>
+                        <h3 class="text-xl font-semibold text-center mb-8">Import the following data from your document and ensure that first row holds the columns headers</h3>
+                        <div class="grid md:grid-cols-2 mt-2 w-4/5 m-auto">
+                            <div class="p-3">
+                                <mat-label class="form-label font-bold">Customer First Name *</mat-label>
+                            </div>
+                            <div class="p-3">
+                                <mat-form-field  class="form-field w-full" appearance="outline">
+                                    <mat-select (selectionChange)="onSelectHeader($event,'customer_firstName')" required>
+                                        <mat-option *ngFor="let col of originColArr" [value]="col">{{col}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 mt-2 w-4/5 m-auto">
+                            <div class="p-3">
+                                <mat-label class="form-label font-bold">Customer Last Name *</mat-label>
+                            </div>
+                            <div class="p-3">
+                                <mat-form-field  class="form-field w-full" appearance="outline">
+                                    <mat-select (selectionChange)="onSelectHeader($event,'customer_lastName')" required>
+                                        <mat-option *ngFor="let col of data[0]" [value]="col">{{col}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 mt-2 w-4/5 m-auto">
+                            <div class="p-3">
+                                <mat-label class="form-label font-bold">Payment Amount *</mat-label>
+                            </div>
+                            <div class="p-3">
+                                <mat-form-field  class="form-field w-full" appearance="outline">
+                                    <mat-select (selectionChange)="onSelectHeader($event,'payment_amount')" required>
+                                        <mat-option *ngFor="let col of data[0]" [value]="col">{{col}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 mt-2 w-4/5 m-auto">
+                            <div class="p-3">
+                                <mat-label class="form-label font-bold">Currency *</mat-label>
+                            </div>
+                            <div class="p-3">
+                                <mat-form-field  class="form-field w-full" appearance="outline">
+                                    <mat-select (selectionChange)="onSelectHeader($event,'currency')" required>
+                                        <mat-option *ngFor="let col of data[0]" [value]="col">{{col}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 mt-2 w-4/5 m-auto">
+                            <div class="p-3">
+                                <mat-label class="form-label font-bold">Status *</mat-label>
+                            </div>
+                            <div class="p-3">
+                                <mat-form-field  class="form-field w-full" appearance="outline">
+                                    <mat-select (selectionChange)="onSelectHeader($event,'status')" required>
+                                        <mat-option *ngFor="let col of data[0]" [value]="col">{{col}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        
+                        <div class="text-right">
+                            <button mat-raised-button color="primary" (click)="onConfirmMApping()" matStepperNext>Proceed</button>
+                        </div>
+                        <div class="text-left">
+                            <button mat-raised-button color="accent"  matStepperPrevious>Back</button>
+                        </div>
+                    </ng-template>
+                </mat-step>
+                <mat-step>
+                  <ng-template matStepLabel>Request Table</ng-template>
+                  <ng-template matStepContent>
+                    <h3 class="text-xl font-semibold text-center mb-8">The following data will be imported from your document</h3>
+                    <div class="w-full overflow-x-auto">
+                      <table class="table-auto sjs-table w-full p-0">
+                          <tbody class="w-full">
+                              <tr *ngFor="let row of data">
+                                  <td *ngFor="let val of row">
+                                      {{val}}
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>  
+                      <!-- <div>
+                        <h3 class="text-xl font-semibold text-center mb-8">Total Amount : {{calcTotalAmt(data)}}</h3>
+                      </div> -->
+                      </div>
+                      <div class="text-right mt-4">
+                          <button mat-raised-button color="primary" (click)="onFinishMApping()">Finish</button>
+                      </div>
+                      <div class="text-left">
+                          <button mat-raised-button color="accent"  matStepperPrevious>Back</button>
+                      </div>
+                  </ng-template>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Result Request Table</ng-template>
+                    <ng-template matStepContent>
+
+                    </ng-template>
+                </mat-step>
+            </mat-stepper>
+
+        </div>
+        
+  
+    </vex-page-layout-content>
+  
+</vex-page-layout>
