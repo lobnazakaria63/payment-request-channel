@@ -49,6 +49,10 @@ const routes: VexRoutes = [
             path: 'payment-request',
             loadChildren: () => import('./pages/apps/payment-request/payment-request.module').then(m => m.PaymentRequestModule),
           },
+          {
+            path: 'profiles',
+            loadChildren: () => import('./pages/apps/profiles/profiles.module').then(m => m.ProfilesModule),
+          },
         ]
       },
       {

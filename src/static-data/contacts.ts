@@ -1,6 +1,6 @@
-import { Contact } from '../app/pages/apps/contacts/interfaces/contact.interface';
+// import { Contact } from '../app/pages/apps/contacts/interfaces/contact.interface';
 
-export const contactsData: Contact[] = [
+export const contactsData: any[] = [
   {
     id: 1,
     imageSrc: 'assets/img/avatars/1.jpg',
