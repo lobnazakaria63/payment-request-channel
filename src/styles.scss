@@ -1,7 +1,10 @@
+
+@use '@angular/material' as mat;
 @import "~simplebar/dist/simplebar.css";
 @import "~highlight.js/styles/androidstudio.css";
 // Vex Core
 @import "./@vex/styles/core";
+
 
 /*
   You can override any CSS Variable or style here
@@ -28,3 +31,8 @@
   // --color-warn: yellow;
   // --color-warn-contrast: black;
 }
+
+.dense-2 {
+  @include mat.all-component-densities(-2);
+}
+

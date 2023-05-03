@@ -29,11 +29,15 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
 import { MatTabsModule } from '@angular/material/tabs';
 import { GeneralInfoComponent } from './organization-profile/general-info/general-info.component';
 import { WidgetQuickValueCenterModule } from 'src/@vex/components/widgets/widget-quick-value-center/widget-quick-value-center.module';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { CustomerFormComponent } from './customer-profile/customer-form/customer-form.component';
 
 @NgModule({
   declarations: [
     OrganizationProfileComponent,
-    GeneralInfoComponent
+    GeneralInfoComponent,
+    CustomerProfileComponent,
+    CustomerFormComponent
   ],
   imports: [
     CommonModule,

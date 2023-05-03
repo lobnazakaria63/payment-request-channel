@@ -3,27 +3,26 @@ import { RouterModule } from '@angular/router';
 import { QuicklinkModule } from 'ngx-quicklink';
 import { VexRoutes } from '../../../../@vex/interfaces/vex-route.interface';
 import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
-import { AioTableComponent } from '../aio-table/aio-table.component';
 import { GeneralInfoComponent } from './organization-profile/general-info/general-info.component';
 import { UserManagementComponent } from '../user-managment/user-managment.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { CustomerFormComponent } from './customer-profile/customer-form/customer-form.component';
 
 
 const routes: VexRoutes = [
   { 
     path:'customer-profile',
-    component:OrganizationProfileComponent,
+    component:CustomerProfileComponent,
     data: {
         toolbarShadowEnabled: false
     },
-    children:[
-        {
-            path:'info',
-            component:AioTableComponent,
-            data: {
-                toolbarShadowEnabled: false
-            },
-        }
-    ]
+  },
+  {
+    path:'profile-update',
+    component:CustomerFormComponent,
+    data: {
+        toolbarShadowEnabled: false
+    },
   },
   { 
     path:'organization-profile',

@@ -1,0 +1,106 @@
+<vex-secondary-toolbar current="Update Profile">
+    <vex-breadcrumbs [crumbs]="['Your Profile', 'Update Profile']" class="flex-auto"></vex-breadcrumbs>
+  
+    <button class="ml-2" color="primary" mat-icon-button type="button">
+      <mat-icon svgIcon="mat:more_vert"></mat-icon>
+    </button>
+</vex-secondary-toolbar>
+
+<!-- <vex-page-layout-content class="-mt-6 "> -->
+<div class="p-gutter form-container container">
+    <div  class="card overflow-auto mt-8 pb-8 p-gutter  container">
+        <form [formGroup]="updateForm">
+            <div class="grid md:grid-cols-3 mt-2">
+
+                <div class="p-3 dense-2">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-label class="form-label">CIF ID </mat-label>
+                        <input matInput formControlName="id">
+                    </mat-form-field>
+
+                </div>
+    
+                <div class="p-3 dense-2">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-label class="form-label">Name </mat-label>
+                        <input matInput formControlName="name">
+                    </mat-form-field>
+                    <div *ngIf=" fUpdate['name'].errors && (fUpdate['name'].touched || fUpdate['name'].dirty)" class="invalid-feedback">
+                        <div *ngIf="fUpdate['name'].errors['required']">
+                            Beneficiary Name is required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-3 dense-2">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-label class="form-label">Address </mat-label>
+                        <input matInput formControlName="address">
+                    </mat-form-field>
+                    <div *ngIf=" fUpdate['address'].errors && (fUpdate['address'].touched || fUpdate['address'].dirty)" class="invalid-feedback">
+                        <div *ngIf="fUpdate['address'].errors['required']">
+                            Beneficiary Address is required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-3 dense-2">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-label class="form-label">Contact Number </mat-label>
+                        <input matInput formControlName="phone">
+                    </mat-form-field>
+                    <div *ngIf=" fUpdate['phone'].errors && (fUpdate['phone'].touched || fUpdate['phone'].dirty)" class="invalid-feedback">
+                        <div *ngIf="fUpdate['phone'].errors['required']">
+                            Contact Number is required
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="p-3 dense-2">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-label class="form-label">Payment Services </mat-label>
+                        <mat-select formControlName="payment_services" >
+                            <mat-option value="$">test1</mat-option>
+                            <mat-option value="£">test 2</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div *ngIf=" fUpdate['payment_services'].errors && (fUpdate['payment_services'].touched || fUpdate['payment_services'].dirty)" class="invalid-feedback">
+                        <div *ngIf="fUpdate['payment_services'].errors['required']">
+                            Payment Services is required
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-3 dense-2">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-label class="form-label">Alert Services </mat-label>
+                        <mat-select formControlName="alert_services" >
+                            <mat-option value="$">test1</mat-option>
+                            <mat-option value="£">test 2</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div *ngIf=" fUpdate['alert_services'].errors && (fUpdate['alert_services'].touched || fUpdate['alert_services'].dirty)" class="invalid-feedback">
+                        <div *ngIf="fUpdate['alert_services'].errors['required']">
+                            Alert Services is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="save-btn text-right mr-4">
+                <button class="mr-4"  mat-raised-button color="primary" >
+                    Save
+                </button>
+                <button  mat-raised-button color="warn">
+                    Cancel
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+   
+    
+
+<!-- </vex-page-layout-content> -->

@@ -1,0 +1,106 @@
+<div class="container py-gutter">
+    <div class="card overflow-hidden">
+      <div class="h-44 relative overflow-hidden">
+        <img class="w-full h-full object-cover" src="assets/img/demo/banner-design.jpg">
+        <div class="absolute bg-contrast-black opacity-25 top-0 right-0 bottom-0 left-0 w-full h-full z-0"></div>
+  
+        <img class="avatar h-24 w-24 absolute top-6 ltr:left-4 rtl:right-4 sm:hidden"
+             src="assets/img/29-297748_round-profile-image-placeholder.png">
+      </div>
+  
+      <div class="z-10 relative -mt-16 px-gutter flex items-center">
+  
+        <img @scaleIn
+             class="avatar h-24 w-24 flex-none align-start hidden sm:block border-2 border-white"
+             src="assets/img/29-297748_round-profile-image-placeholder.png">
+  
+        <div class="max-w-full flex-auto sm:ltr:ml-6 sm:rtl:mr-6">
+          <div class="h-16 flex items-end">
+            <h1 @fadeInRight class="headline text-contrast-white pb-2 m-0">David Smith</h1>
+          </div>
+          <div class="h-12">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- .. -->
+    <div class="mt-6 flex flex-col md:flex-row md:items-start">
+        <div class="flex-auto">
+          <div class="card">
+            <div class="px-gutter flex justify-between py-4 border-b">
+              <h2 class="title m-0">About</h2>
+              <div @scaleIn
+                     class="w-8 font-bold h-8 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                    <a [routerLink]="['/apps/profiles/profile-update']">
+                        <mat-icon class="icon-sm" svgIcon="mat:edit"></mat-icon>
+                    </a>
+                  
+                </div>
+            </div>
+      
+            <div class="px-gutter py-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="py-3 flex items-center">
+                <div @scaleIn
+                     class="w-10 font-bold h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                  <!-- <mat-icon class="icon-sm" svgIcon="mat:perm_identity"></mat-icon> -->
+                  CIF
+                </div>
+      
+                <div @fadeInRight>
+                  <p class="m-0 body-1">11524555</p>
+                </div>
+              </div>
+      
+              <div class="py-3 flex items-center">
+                <div @scaleIn
+                     class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                  <mat-icon class="icon-sm" svgIcon="mat:home"></mat-icon>
+                </div>
+      
+                <div @fadeInRight>
+                  <p class="m-0 body-1">5 xxxxx st. apartment no. xxxxx</p>
+                  <p class="m-0 caption text-hint">Cairo , Egypt</p>
+                </div>
+              </div>
+      
+              <div class="py-3 flex items-center">
+                <div @scaleIn
+                     class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                  <mat-icon class="icon-sm" svgIcon="mat:mail"></mat-icon>
+                </div>
+      
+                <div @fadeInRight>
+                  <p class="m-0 body-1">david.smith@example.com</p>
+                  <p class="m-0 caption text-hint">Business inquiries only</p>
+                </div>
+              </div>
+      
+              <div class="py-3 flex items-center">
+                <div @scaleIn
+                     class="w-10 h-10 rounded-full bg-primary/10 text-primary ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+                  <mat-icon class="icon-sm" svgIcon="mat:phonelink_ring"></mat-icon>
+                </div>
+      
+                <div @fadeInRight>
+                  <p class="m-0 body-1">+(002)01234567897</p>
+                </div>
+              </div>
+      
+            </div>
+          </div>
+      
+        </div>
+      
+        <!-- <div class="card max-w-unset md:max-w-xs w-full flex-none md:ltr:ml-6 md:rtl:mr-6 mt-6 md:mt-0">
+          <div class="px-6 py-4 border-b">
+            <h2 class="title m-0">Friend Suggestions</h2>
+          </div>
+      
+          <div @stagger class="px-6 py-4 flex flex-col gap-4">
+            
+          </div>
+        </div> -->
+    </div>
+    <!-- .. -->
+</div>
