@@ -52,12 +52,13 @@ export class BeneficiaryFormComponent implements OnInit{
     }
     addAccount() {
         const form = this._fb.group({
-            IBAN: [null],
-            bankName: [null],
-            swiftCode: [null],
+            IBAN: [null,[Validators.required]],
+            bankName: [null,[Validators.required]],
+            swiftCode: [null,[Validators.required]],
         });
       
         this.accounts.push(form);
+        console.log(this.accounts)
     }
 
     deleteAccount(accountIndex: number) {

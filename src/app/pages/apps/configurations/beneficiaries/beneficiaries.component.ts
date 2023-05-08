@@ -15,6 +15,7 @@ import { stagger40ms } from 'src/@vex/animations/stagger.animation';
 import { Customer } from '../../aio-table/interfaces/customer.model';
 import { TableColumn } from 'src/@vex/interfaces/table-column.interface';
 import { aioTableData, aioTableLabels } from 'src/static-data/aio-table-data';
+import { Router } from '@angular/router';
 
 
 @UntilDestroy()
@@ -74,7 +75,7 @@ export class BeneficiariesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog,private router:Router) {
   }
 
   get visibleColumns() {
@@ -113,8 +114,8 @@ export class BeneficiariesComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  createCustomer() {
-
+  createBeneficiary() {
+    this.router.navigateByUrl(`/apps/configurations/add-beneficiary`)
   }
 
   updateCustomer(customer: Customer) {

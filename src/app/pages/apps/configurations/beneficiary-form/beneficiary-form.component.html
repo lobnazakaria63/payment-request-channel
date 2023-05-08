@@ -67,7 +67,7 @@
 
                 <div class="grid md:grid-cols-1 mt-2 p-4">
                     <div *ngIf="accounts.controls.length > 0" class="mb-4 text-right no-contact-label">
-                        <button mat-raised-button class="w-50" color="primary" (click)="addAccount()">
+                        <button [disabled]="accounts.invalid" mat-raised-button class="w-50" color="primary" (click)="addAccount()">
                             <mat-icon class="add-course-btn" svgIcon="mat:add"></mat-icon>
                             Add Account
                         </button>
