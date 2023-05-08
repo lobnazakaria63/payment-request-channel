@@ -3,125 +3,61 @@
     <vex-page-layout-header class="pb-16 flex flex-col items-start justify-center">
       <div [class.container]="layoutCtrl.value === 'boxed'"
            [class.px-gutter]="layoutCtrl.value === 'fullwidth'"
-           class="w-full flex flex-col sm:flex-row justify-between m-0">
+           class="w-full flex flex-col sm:flex-row justify-between">
         <div>
-          <h1 class="title mt-0 mb-1">Payment Requests</h1>
-          <vex-breadcrumbs [crumbs]="['Apps','Payment Requests']"></vex-breadcrumbs>
+          <h1 class="title mt-0 mb-1">Beneficiaries</h1>
+          <vex-breadcrumbs [crumbs]="['Apps', 'Beneficiaries']"></vex-breadcrumbs>
         </div>
       </div>
     </vex-page-layout-header>
   
-    <vex-page-layout-content class="-mt-6">
+    <vex-page-layout-content [class.container]="layoutCtrl.value === 'boxed'"
+                             [class.px-gutter]="layoutCtrl.value === 'fullwidth'"
+                             class="-mt-6">
   
       <div class="card overflow-auto -mt-16">
         <div class="bg-app-bar px-6 h-16 border-b sticky left-0 flex items-center">
           <h2 class="title my-0 ltr:pr-4 rtl:pl-4 ltr:mr-4 rtl:ml-4 ltr:border-r rtl:border-l hidden sm:block flex-none">
-            <span *ngIf="selection.isEmpty()">Requests</span>
+            <span *ngIf="selection.isEmpty()">Beneficiaries</span>
+            <span *ngIf="selection.hasValue()">{{ selection.selected.length }}
+              User<span *ngIf="selection.selected.length > 1">s</span> selected</span>
           </h2>
   
   
-          <div class="bg-foreground rounded-full border px-4 max-w-[240px] flex-auto flex items-center border border-gray-300">
+          <div class="bg-foreground rounded-full border px-4 max-w-[300px] flex-auto flex items-center border border-gray-300">
             <mat-icon class="icon-sm text-secondary" svgIcon="mat:search"></mat-icon>
             <input [formControl]="searchCtrl"
                    class="px-4 py-2 border-0 outline-none w-full bg-transparent"
-                   placeholder="Search By Batch No..."
+                   placeholder="Search..."
                    type="search">
           </div>
-          <span class="flex-1"></span>
-
-          <div class="bg-foreground rounded-full border px-4 max-w-[240px] flex-auto flex items-center border border-gray-300 form-field">
-            <!-- <mat-label>Enter a date range</at-label> -->
-            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-              <input matStartDate formControlName="start" placeholder="Start date">
-              <input matEndDate formControlName="end" placeholder="End date">
-            </mat-date-range-input>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-          
-            <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
-            <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-          </div>
-
-          <span class="flex-1"></span>
-
-          <div class="bg-foreground rounded-full border px-4 max-w-[240px] flex-auto flex items-center border border-gray-300 form-field">
-            <mat-select class="py-2" placeholder="Transaction Type" >
-              <mat-option value="$">Single</mat-option>
-              <mat-option value="£">Batch</mat-option>
-            </mat-select>
-          </div>
   
           <span class="flex-1"></span>
   
-          <button [matMenuTriggerFor]="menu"
+          <button [matMenuTriggerFor]="columnFilterMenu"
                   class="ml-4 flex-none"
                   mat-icon-button
-                  matTooltip="Filter By Status"
+                  matTooltip="Filter Columns"
                   type="button">
             <mat-icon svgIcon="mat:filter_list"></mat-icon>
           </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>Active</button>
-            <button mat-menu-item>Submitted</button>
-          </mat-menu>
-
-          <!-- <span class="flex-1"></span>  -->
-
-          <button (click)="createPaymentRequest()"
-                class="ml-4 flex-none"
-                color="primary"
-                mat-raised-button
-                matTooltip="Add Customer"
-                type="button">
-                Make Payment
-          <mat-icon svgIcon="mat:add"></mat-icon>
-        </button>
+  
+          <button (click)="createCustomer()"
+                  class="ml-4 flex-none"
+                  color="primary"
+                  mat-raised-button
+                  matTooltip="Add Beneficiary"
+                  type="button">
+                  Add Beneficiary
+            <mat-icon svgIcon="mat:add"></mat-icon>
+          </button>
         </div>
-        <!-- <div class="bg-app-bar px-6 h-16 border-b sticky left-0 flex items-center">
-            <mat-form-field class="form-field" appearance="outline">
-                <mat-label>Enter a date range</mat-label>
-                <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-                  <input matStartDate formControlName="start" placeholder="Start date">
-                  <input matEndDate formControlName="end" placeholder="End date">
-                </mat-date-range-input>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-date-range-picker #picker></mat-date-range-picker>
-              
-                <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
-                <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-            </mat-form-field>
-        </div> -->
   
         <table @stagger [dataSource]="dataSource" class="w-full" mat-table matSort>
   
           <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
   
-          <!-- Checkbox Column -->
-          <ng-container matColumnDef="checkbox">
-            <th *matHeaderCellDef mat-header-cell>
-              <mat-checkbox (change)="$event ? masterToggle() : null"
-                            [checked]="selection.hasValue() && isAllSelected()"
-                            [indeterminate]="selection.hasValue() && !isAllSelected()"
-                            color="primary">
-              </mat-checkbox>
-            </th>
-            <td *matCellDef="let row" class="w-4" mat-cell>
-              <mat-checkbox (change)="$event ? selection.toggle(row) : null"
-                            (click)="$event.stopPropagation()"
-                            [checked]="selection.isSelected(row)"
-                            color="primary">
-              </mat-checkbox>
-            </td>
-          </ng-container>
-  
-          <!-- Image Column -->
-          <ng-container matColumnDef="image">
-            <th *matHeaderCellDef mat-header-cell></th>
-            <td *matCellDef="let row" class="w-8 min-w-8 pr-0" mat-cell>
-              <img [src]="row['imageSrc']" class="avatar h-8 w-8 align-middle">
-            </td>
-          </ng-container>
   
           <!-- Text Columns -->
           <ng-container *ngFor="let column of columns; trackBy: trackByProperty">
@@ -159,7 +95,7 @@
   
           <!-- Label Column -->
           <ng-container matColumnDef="labels">
-            <th *matHeaderCellDef class="uppercase" mat-header-cell mat-sort-header>Status</th>
+            <th *matHeaderCellDef class="uppercase" mat-header-cell mat-sort-header>Roles</th>
             <td *matCellDef="let row" mat-cell>
               <div (click)="$event.stopPropagation()" class="flex items-center gap-1">
                 <div *ngFor="let label of row.labels"
@@ -201,9 +137,9 @@
   
     </vex-page-layout-content>
   
-  </vex-page-layout>
+</vex-page-layout>
   
-  <mat-menu #columnFilterMenu="matMenu" xPosition="before" yPosition="below">
+<mat-menu #columnFilterMenu="matMenu" xPosition="before" yPosition="below">
     <button (click)="toggleColumnVisibility(column, $event)" *ngFor="let column of columns"
             class="mat-menu-item block">
       <mat-checkbox (click)="$event.stopPropagation()" [(ngModel)]="column.visible" color="primary">
@@ -215,12 +151,13 @@
   <mat-menu #actionsMenu="matMenu" xPosition="before" yPosition="below">
     <ng-template let-customer="customer" matMenuContent>
       <button (click)="updateCustomer(customer)" mat-menu-item>
-        <mat-icon svgIcon="mat:edit"></mat-icon>
-        <span>Modify</span>
+        <mat-icon svgIcon="mat:details"></mat-icon>
+        <span>Details</span>
       </button>
-      <button (click)="deleteCustomer(customer)" mat-menu-item>
+      <!-- <button (click)="deleteCustomer(customer)" mat-menu-item>
         <mat-icon svgIcon="mat:delete"></mat-icon>
         <span>Delete</span>
-      </button>
+      </button> -->
     </ng-template>
-  </mat-menu>
+</mat-menu>
+  

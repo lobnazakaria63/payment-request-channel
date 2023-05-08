@@ -6447,6 +6447,229 @@ body .apexcharts-tooltip.light {
 /**
   Uncomment the below code and adjust the values to fit your colors, the application will automatically adjust
  */
+.dense-2 .mat-mdc-form-field-infix {
+  min-height: 48px;
+}
+.dense-2 .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+  top: 24px;
+}
+.dense-2 .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  --mat-mdc-form-field-label-transform: translateY(
+          -30.75px)
+          scale(var(--mat-mdc-form-field-floating-label-scale, 0.75));
+  transform: var(--mat-mdc-form-field-label-transform);
+}
+.dense-2 .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.dense-2 .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.dense-2 .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.dense-2 .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-floating-label {
+  display: none;
+}
+.dense-2 .mat-mdc-checkbox .mdc-checkbox {
+  padding: calc((var(--mdc-checkbox-ripple-size, 32px) - 18px) / 2);
+  margin: calc((var(--mdc-checkbox-touch-target-size, 32px) - 32px) / 2);
+}
+.dense-2 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__background {
+  top: calc((var(--mdc-checkbox-ripple-size, 32px) - 18px) / 2);
+  left: calc((var(--mdc-checkbox-ripple-size, 32px) - 18px) / 2);
+}
+.dense-2 .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control {
+  top: calc((32px - var(--mdc-checkbox-touch-target-size, 32px)) / 2);
+  right: calc((32px - var(--mdc-checkbox-touch-target-size, 32px)) / 2);
+  left: calc((32px - var(--mdc-checkbox-touch-target-size, 32px)) / 2);
+  width: var(--mdc-checkbox-touch-target-size, 32px);
+  height: var(--mdc-checkbox-touch-target-size, 32px);
+}
+.dense-2 .mat-mdc-checkbox-touch-target {
+  display: none;
+}
+.dense-2 .mat-mdc-chip {
+  height: 24px;
+}
+.dense-2 .mat-mdc-chip .mdc-evolution-chip__action-touch {
+  display: none;
+}
+.dense-2 .mat-mdc-slide-toggle {
+  --mdc-switch-state-layer-size: 40px;
+}
+.dense-2 .mat-mdc-radio-button .mdc-radio {
+  padding: calc((32px - 20px) / 2);
+  margin: 0;
+}
+.dense-2 .mat-mdc-radio-button .mdc-radio .mdc-radio__background::before {
+  top: calc(-1 * (32px - 20px) / 2);
+  left: calc(-1 * (32px - 20px) / 2);
+  width: 32px;
+  height: 32px;
+}
+.dense-2 .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control {
+  top: calc((32px - 32px) / 2);
+  right: calc((32px - 32px) / 2);
+  left: calc((32px - 32px) / 2);
+  width: 32px;
+  height: 32px;
+}
+.dense-2 .mat-mdc-radio-touch-target {
+  display: none;
+}
+.dense-2 .mat-mdc-list-base {
+  --mdc-list-list-item-one-line-container-height: 40px;
+  --mdc-list-list-item-two-line-container-height: 56px;
+  --mdc-list-list-item-three-line-container-height: 80px;
+}
+.dense-2 .mat-mdc-list-item.mdc-list-item--with-leading-avatar.mdc-list-item--with-one-line, .dense-2 .mat-mdc-list-item.mdc-list-item--with-leading-checkbox.mdc-list-item--with-one-line, .dense-2 .mat-mdc-list-item.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
+  height: 48px;
+}
+.dense-2 .mat-mdc-list-item.mdc-list-item--with-leading-avatar.mdc-list-item--with-two-lines, .dense-2 .mat-mdc-list-item.mdc-list-item--with-leading-checkbox.mdc-list-item--with-two-lines, .dense-2 .mat-mdc-list-item.mdc-list-item--with-leading-icon.mdc-list-item--with-two-lines {
+  height: 64px;
+}
+.dense-2 .mat-mdc-paginator .mat-mdc-form-field-infix {
+  min-height: 40px;
+}
+.dense-2 .mat-mdc-paginator .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+  top: 20px;
+}
+.dense-2 .mat-mdc-paginator .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  --mat-mdc-form-field-label-transform: translateY(
+          -26.75px)
+          scale(var(--mat-mdc-form-field-floating-label-scale, 0.75));
+  transform: var(--mat-mdc-form-field-label-transform);
+}
+.dense-2 .mat-mdc-paginator .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.dense-2 .mat-mdc-paginator .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.dense-2 .mat-mdc-paginator .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.dense-2 .mat-mdc-paginator .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-floating-label {
+  display: none;
+}
+.dense-2 .mat-mdc-paginator-container {
+  min-height: 48px;
+}
+.dense-2 .mat-mdc-tab-header .mdc-tab {
+  height: 40px;
+}
+.dense-2 .mat-mdc-button.mat-mdc-button-base,
+.dense-2 .mat-mdc-raised-button.mat-mdc-button-base,
+.dense-2 .mat-mdc-unelevated-button.mat-mdc-button-base,
+.dense-2 .mat-mdc-outlined-button.mat-mdc-button-base {
+  height: 28px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.dense-2 .mat-mdc-button.mat-mdc-button-base .mdc-button__touch,
+.dense-2 .mat-mdc-raised-button.mat-mdc-button-base .mdc-button__touch,
+.dense-2 .mat-mdc-unelevated-button.mat-mdc-button-base .mdc-button__touch,
+.dense-2 .mat-mdc-outlined-button.mat-mdc-button-base .mdc-button__touch {
+  height: 100%;
+}
+.dense-2 .mat-mdc-button.mat-mdc-button-base .mat-mdc-button-touch-target,
+.dense-2 .mat-mdc-raised-button.mat-mdc-button-base .mat-mdc-button-touch-target,
+.dense-2 .mat-mdc-unelevated-button.mat-mdc-button-base .mat-mdc-button-touch-target,
+.dense-2 .mat-mdc-outlined-button.mat-mdc-button-base .mat-mdc-button-touch-target {
+  display: none;
+}
+.dense-2 .mat-mdc-icon-button.mat-mdc-button-base {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+}
+.dense-2 .mat-mdc-icon-button.mat-mdc-button-base .mdc-icon-button__focus-ring {
+  max-height: 40px;
+  max-width: 40px;
+}
+.dense-2 .mat-mdc-icon-button.mat-mdc-button-base.mdc-icon-button--reduced-size .mdc-icon-button__ripple {
+  width: 40px;
+  height: 40px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.dense-2 .mat-mdc-icon-button.mat-mdc-button-base.mdc-icon-button--reduced-size .mdc-icon-button__focus-ring {
+  max-height: 40px;
+  max-width: 40px;
+}
+.dense-2 .mat-mdc-icon-button.mat-mdc-button-base .mdc-icon-button__touch {
+  position: absolute;
+  top: 50%;
+  height: 40px;
+  /* @noflip */ /*rtl:ignore*/
+  left: 50%;
+  width: 40px;
+  transform: translate(-50%, -50%);
+}
+.dense-2 .mat-mdc-icon-button.mat-mdc-button-base .mat-mdc-button-touch-target {
+  display: none;
+}
+.dense-2 .mat-mdc-table .mdc-data-table__row {
+  height: 44px;
+}
+.dense-2 .mat-mdc-table .mdc-data-table__pagination {
+  min-height: 44px;
+}
+.dense-2 .mat-mdc-table .mdc-data-table__header-row {
+  height: 48px;
+}
+.dense-2 .mat-expansion-panel-header {
+  height: 40px;
+}
+.dense-2 .mat-expansion-panel-header.mat-expanded {
+  height: 56px;
+}
+.dense-2 .mat-horizontal-stepper-header {
+  height: 64px;
+}
+.dense-2 .mat-stepper-label-position-bottom .mat-horizontal-stepper-header,
+.dense-2 .mat-vertical-stepper-header {
+  padding: 20px 24px;
+}
+.dense-2 .mat-stepper-vertical-line::before {
+  top: -12px;
+  bottom: -12px;
+}
+.dense-2 .mat-stepper-label-position-bottom .mat-horizontal-stepper-header::after, .dense-2 .mat-stepper-label-position-bottom .mat-horizontal-stepper-header::before {
+  top: 32px;
+}
+.dense-2 .mat-stepper-label-position-bottom .mat-stepper-horizontal-line {
+  top: 32px;
+}
+.dense-2 .mat-toolbar-multiple-rows {
+  min-height: 56px;
+}
+.dense-2 .mat-toolbar-row, .dense-2 .mat-toolbar-single-row {
+  height: 56px;
+}
+@media (max-width: 599px) {
+  .dense-2 .mat-toolbar-multiple-rows {
+    min-height: 48px;
+  }
+  .dense-2 .mat-toolbar-row, .dense-2 .mat-toolbar-single-row {
+    height: 48px;
+  }
+}
+.dense-2 .mat-tree-node {
+  min-height: 40px;
+}
+.dense-2 .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+  line-height: 40px;
+}
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[6].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[6].rules[1].use[1]!./src/@vex/styles/tailwind.scss?ngGlobalStyle ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -7040,14 +7263,29 @@ blockquote > * {
 :root .-top-3 {
   top: -0.75rem;
 }
+:root .bottom-0 {
+  bottom: 0px;
+}
 :root .left-0 {
   left: 0px;
+}
+:root .right-0 {
+  right: 0px;
 }
 :root .top-0 {
   top: 0px;
 }
 :root .top-12 {
   top: 3rem;
+}
+:root .top-6 {
+  top: 1.5rem;
+}
+:root .z-0 {
+  z-index: 0;
+}
+:root .z-10 {
+  z-index: 10;
 }
 :root .z-40 {
   z-index: 40;
@@ -7150,6 +7388,9 @@ blockquote > * {
 :root .mt-6 {
   margin-top: 1.5rem;
 }
+:root .mt-8 {
+  margin-top: 2rem;
+}
 :root .block {
   display: block;
 }
@@ -7171,14 +7412,23 @@ blockquote > * {
 :root .h-1 {
   height: 0.25rem;
 }
+:root .h-10 {
+  height: 2.5rem;
+}
 :root .h-12 {
   height: 3rem;
 }
 :root .h-16 {
   height: 4rem;
 }
+:root .h-24 {
+  height: 6rem;
+}
 :root .h-3 {
   height: 0.75rem;
+}
+:root .h-44 {
+  height: 11rem;
 }
 :root .h-6 {
   height: 1.5rem;
@@ -7206,6 +7456,9 @@ blockquote > * {
 }
 :root .w-16 {
   width: 4rem;
+}
+:root .w-24 {
+  width: 6rem;
 }
 :root .w-3 {
   width: 0.75rem;
@@ -7242,6 +7495,9 @@ blockquote > * {
 }
 :root .max-w-\[400px\] {
   max-width: 400px;
+}
+:root .max-w-full {
+  max-width: 100%;
 }
 :root .max-w-lg {
   max-width: 32rem;
@@ -7394,6 +7650,10 @@ blockquote > * {
 :root .border-divider {
   border-color: var(--foreground-divider);
 }
+:root .border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
 :root .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -7408,6 +7668,10 @@ blockquote > * {
 }
 :root .border-transparent {
   border-color: transparent;
+}
+:root .border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 :root .\!bg-amber {
   --tw-bg-opacity: 1 !important;
@@ -7545,6 +7809,9 @@ blockquote > * {
 :root .fill-current {
   fill: currentColor;
 }
+:root .object-cover {
+  object-fit: cover;
+}
 :root .p-0 {
   padding: 0px;
 }
@@ -7559,6 +7826,10 @@ blockquote > * {
 }
 :root .p-gutter {
   padding: var(--padding-gutter);
+}
+:root .px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 :root .px-1 {
   padding-left: 0.25rem;
@@ -7600,6 +7871,10 @@ blockquote > * {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+:root .py-gutter {
+  padding-top: var(--padding-gutter);
+  padding-bottom: var(--padding-gutter);
+}
 :root .pb-0 {
   padding-bottom: 0px;
 }
@@ -7608,6 +7883,9 @@ blockquote > * {
 }
 :root .pb-16 {
   padding-bottom: 4rem;
+}
+:root .pb-2 {
+  padding-bottom: 0.5rem;
 }
 :root .pb-6 {
   padding-bottom: 1.5rem;
@@ -7833,6 +8111,9 @@ blockquote > * {
 :root .opacity-20 {
   opacity: 0.2;
 }
+:root .opacity-25 {
+  opacity: 0.25;
+}
 :root .opacity-50 {
   opacity: 0.5;
 }
@@ -7993,6 +8274,10 @@ blockquote > * {
   background-color: var(--background-app-bar);
 }
 
+:root [dir="ltr"] .ltr\:left-4 {
+  left: 1rem;
+}
+
 :root [dir="ltr"] .ltr\:right-12 {
   right: 3rem;
 }
@@ -8043,6 +8328,10 @@ blockquote > * {
 
 :root [dir="rtl"] .rtl\:left-12 {
   left: 3rem;
+}
+
+:root [dir="rtl"] .rtl\:right-4 {
+  right: 1rem;
 }
 
 :root [dir="rtl"] .rtl\:-ml-2 {
@@ -8115,6 +8404,10 @@ blockquote > * {
     display: block;
   }
 
+  :root .sm\:hidden {
+    display: none;
+  }
+
   :root .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -8122,9 +8415,25 @@ blockquote > * {
   :root .sm\:flex-row {
     flex-direction: row;
   }
+
+  :root [dir="ltr"] .sm\:ltr\:ml-6 {
+    margin-left: 1.5rem;
+  }
+
+  :root [dir="rtl"] .sm\:rtl\:mr-6 {
+    margin-right: 1.5rem;
+  }
 }
 
 @media (min-width: 960px) {
+
+  :root .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  :root .md\:max-w-xs {
+    max-width: 20rem;
+  }
 
   :root .md\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -8144,6 +8453,18 @@ blockquote > * {
 
   :root .md\:flex-row {
     flex-direction: row;
+  }
+
+  :root .md\:items-start {
+    align-items: flex-start;
+  }
+
+  :root [dir="ltr"] .md\:ltr\:ml-6 {
+    margin-left: 1.5rem;
+  }
+
+  :root [dir="rtl"] .md\:rtl\:mr-6 {
+    margin-right: 1.5rem;
   }
 }
 

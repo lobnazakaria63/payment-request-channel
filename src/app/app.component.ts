@@ -152,23 +152,23 @@ export class AppComponent {
       },
       {
         type: 'subheading',
-        label: 'Payment Request',
+        label: 'Payment Management',
         children: [
           {
             type: 'link',
-            label: 'Requests History',
+            label: 'Payment Requests',
             icon: 'mat:watch_later',
             route: '/apps/payment-request/request-history'
           },
+          // {
+          //   type: 'link',
+          //   label: 'Single Request',
+          //   icon: 'mat:attach_money',
+          //   route: '/apps/payment-request/single-request'
+          // },
           {
             type: 'link',
-            label: 'Single Request',
-            icon: 'mat:attach_money',
-            route: '/apps/payment-request/single-request'
-          },
-          {
-            type: 'link',
-            label: 'Batch Request',
+            label: 'Make Payment',
             icon: 'mat:attach_money',
             route: '/apps/payment-request/batch-request'
           },
@@ -176,15 +176,27 @@ export class AppComponent {
       },
       {
         type: 'subheading',
-        label: 'Customize',
+        label: 'Configuration',
         children: []
+      },
+      // {
+      //   type: 'link',
+      //   label: 'Configuration',
+      //   route: () => this.layoutService.openConfigpanel(),
+      //   icon: 'mat:settings'
+      // }
+      {
+        type: 'link',
+        label: 'Beneficiaries',
+        route: '/apps/configurations/beneficiaries',
+        icon: 'mat:people'
       },
       {
         type: 'link',
-        label: 'Configuration',
-        route: () => this.layoutService.openConfigpanel(),
-        icon: 'mat:settings'
-      }
+        label: 'Add Beneficiary',
+        route: '/apps/configurations/add-beneficiary',
+        icon: 'mat:person_add',
+      },
     ];
   }
 }

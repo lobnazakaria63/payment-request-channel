@@ -1,0 +1,153 @@
+<vex-page-layout>
+
+    <vex-page-layout-header class="pb-16  flex flex-col items-start justify-center">
+      <div class="w-full flex flex-col sm:flex-row justify-between">
+        <div>
+          <h1 class="title mt-0 mb-1">Create New Beneficiary</h1>
+          <vex-breadcrumbs [crumbs]="['Apps', 'Beneficiary List', 'Create Beneficiary']"></vex-breadcrumbs>
+        </div>
+      </div>
+    </vex-page-layout-header>
+  
+    <vex-page-layout-content class="-mt-6 ">
+        <div  class="card overflow-auto -mt-16 pb-8">
+            <form [formGroup]="beneficiaryForm">
+                <div @fadeInUp class="bg-app-bar px-6 h-16 border-b sticky left-0 flex items-center">
+                    <h2 class="title my-0 ltr:pr-4 rtl:pl-4 ltr:mr-4 rtl:ml-4 ltr:border-r rtl:border-l hidden sm:block flex-none">
+                      Beneficiary
+                    </h2>
+                </div>
+                <div class="grid md:grid-cols-2 mt-2">
+        
+                    <div class="p-3 dense-2">
+                        <mat-form-field  class="form-field w-full" appearance="outline">
+                            <mat-label class="form-label">Name </mat-label>
+                            <input matInput formControlName="name">
+                        </mat-form-field>
+                        <div *ngIf=" fReq['name'].errors && (fReq['name'].touched || fReq['name'].dirty)" class="invalid-feedback">
+                            <div *ngIf="fReq['name'].errors['required']">
+                                Beneficiary Name is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 dense-2">
+                        <mat-form-field  class="form-field w-full" appearance="outline">
+                            <mat-label class="form-label">Address </mat-label>
+                            <input matInput formControlName="address">
+                        </mat-form-field>
+                        <div *ngIf=" fReq['address'].errors && (fReq['address'].touched || fReq['address'].dirty)" class="invalid-feedback">
+                            <div *ngIf="fReq['address'].errors['required']">
+                                Beneficiary Address is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="p-3 w-50">
+                        <button mat-raised-button class="w-50" color="primary" (click)="addAccount()">
+                            <mat-icon class="add-course-btn" svgIcon="mat:add"></mat-icon>
+                            Add Account
+                        </button>
+                    </div> -->
+
+                </div>
+
+                <div *ngIf="accounts.controls.length == 0" class="grid md:grid-cols-1 mt-2 p-4">
+                    <div class="empty-list">
+                        <lottie-player class="lotti-img" src="/assets/lottieJson/96635-empty-state-card.json"  background="transparent"  speed="1" loop  autoplay >
+                        </lottie-player>
+                        <div class="text-center no-contact-label">
+                            <button mat-raised-button class="w-50" color="primary" (click)="addAccount()">
+                                <mat-icon class="add-course-btn" svgIcon="mat:add"></mat-icon>
+                                Add Account
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-1 mt-2 p-4">
+                    <div *ngIf="accounts.controls.length > 0" class="mb-4 text-right no-contact-label">
+                        <button mat-raised-button class="w-50" color="primary" (click)="addAccount()">
+                            <mat-icon class="add-course-btn" svgIcon="mat:add"></mat-icon>
+                            Add Account
+                        </button>
+                    </div>
+                    <ng-container formArrayName="accountNumber">
+                        <mat-accordion @fadeInUp  class="example-headers-align">
+                            <mat-expansion-panel hideToggle *ngFor="let form of accounts.controls; let i = index" [expanded]="i === accounts.controls.length-1">
+                              <mat-expansion-panel-header class="bg-app-bar px-6 h-16 border-b sticky left-0 flex items-center">
+                                <mat-panel-title>Account Number #{{i+1}}</mat-panel-title>
+                                <mat-panel-description>
+                                    <button mat-icon-button color="warn" (click)="deleteAccount(i)">
+                                        <mat-icon svgIcon="mat:delete"></mat-icon>
+                                    </button>
+                                </mat-panel-description>
+                              </mat-expansion-panel-header>
+                              <div class="grid md:grid-cols-3 mt-2" [formGroupName]="i">
+                                <div class="p-3 dense-2">
+                                    <mat-form-field  class="form-field w-full" appearance="outline">
+                                        <mat-label class="form-label">Bank Name </mat-label>
+                                        <input matInput formControlName="bankName">
+                                    </mat-form-field>
+                                    <!-- <div *ngIf=" fReq['bankName'].errors && (fReq['bankName'].touched || fReq['bankName'].dirty)" class="invalid-feedback">
+                                        <div *ngIf="fReq['bankName'].errors['required']">
+                                            Bank Name is required
+                                        </div>
+                                    </div> -->
+                                  </div>
+    
+                                  <div class="p-3 dense-2">
+                                    <mat-form-field  class="form-field w-full" appearance="outline">
+                                        <mat-label class="form-label">IBAN </mat-label>
+                                        <input matInput formControlName="IBAN">
+                                    </mat-form-field>
+                                    <!-- <div *ngIf=" fReq['IBAN'].errors && (fReq['IBAN'].touched || fReq['IBAN'].dirty)" class="invalid-feedback">
+                                        <div *ngIf="fReq['IBAN'].errors['required']">
+                                            IBAN is required
+                                        </div>
+                                    </div> -->
+                                  </div>
+                        
+                                  <div class="p-3 dense-2">
+                                    <mat-form-field  class="form-field w-full" appearance="outline">
+                                        <mat-label class="form-label">Swift Code </mat-label>
+                                        <input matInput formControlName="swiftCode">
+                                    </mat-form-field>
+                                    <!-- <div *ngIf=" fReq['swiftCode'].errors && (fReq['swiftCode'].touched || fReq['swiftCode'].dirty)" class="invalid-feedback">
+                                        <div *ngIf="fReq['swiftCode'].errors['required']">
+                                            Swift Code is required
+                                        </div>
+                                    </div> -->
+                                  </div>
+                              </div>
+                              
+
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </ng-container>
+                    
+                </div>
+
+
+                <div class="save-btn text-right mr-4">
+                    <button  mat-raised-button color="primary" (click)="submit()">
+                        Submit
+                    </button>
+                    <button  mat-raised-button color="accent" class="mr-4 ml-4" (click)="saveDraft()">
+                        Save Draft
+                    </button>
+                    <button  mat-raised-button color="warn" (click)="delete()">
+                        Delete
+                    </button>
+                </div>
+            </form>
+
+        </div>
+        
+  
+    </vex-page-layout-content>
+  
+</vex-page-layout>
+  
+  
+  

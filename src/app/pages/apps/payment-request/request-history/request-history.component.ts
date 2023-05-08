@@ -15,6 +15,7 @@ import { SelectionModel } from "@angular/cdk/collections";
 import { MatDialog } from "@angular/material/dialog";
 import { TableColumn } from "src/@vex/interfaces/table-column.interface";
 import { MatSelectChange } from "@angular/material/select";
+import { Router } from "@angular/router";
 
 @Component({
     templateUrl:'./request-history.component.html',
@@ -48,13 +49,14 @@ export class RequestHistoryComponent implements OnInit{
     });
     @Input()
     columns: TableColumn<Customer>[] = [
-      { label: 'ID', property: 'id', type: 'text', visible: true, cssClasses: ['font-medium'] },
-      { label: 'First Name', property: 'firstName', type: 'text', visible: true, cssClasses: ['font-medium'] },
-      { label: 'Last Name', property: 'lastName', type: 'text', visible: true , cssClasses: ['font-medium']},
+      { label: 'Batch No.', property: 'id', type: 'text', visible: true, cssClasses: ['font-medium'] },
+      { label: 'Beneficiary', property: 'name', type: 'text', visible: true, cssClasses: ['font-medium'] },
+      { label: 'first name', property: 'firstName', type: 'text', visible: false},
+      { label: 'Last Name', property: 'lastName', type: 'text', visible: false},
       { label: 'Payment Amount', property: 'amount', type: 'text', visible: true, cssClasses: ['text-secondary', 'font-medium'] },
     //   { label: 'Street', property: 'street', type: 'text', visible: false, cssClasses: ['text-secondary', 'font-medium'] },
     //   { label: 'Zipcode', property: 'zipcode', type: 'text', visible: false, cssClasses: ['text-secondary', 'font-medium'] },
-    //   { label: 'City', property: 'city', type: 'text', visible: false, cssClasses: ['text-secondary', 'font-medium'] },
+      { label: 'Request Date', property: 'date', type: 'text', visible: true, cssClasses: ['text-secondary', 'font-medium'] },
       { label: 'Currency', property: 'currency', type: 'text', visible: true, cssClasses: ['text-secondary', 'font-medium'] },
       { label: 'Status', property: 'labels', type: 'button', visible: true },
       { label: 'Actions', property: 'actions', type: 'button', visible: true }
@@ -70,7 +72,7 @@ export class RequestHistoryComponent implements OnInit{
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
   
-    constructor(private dialog: MatDialog) {
+    constructor(private dialog: MatDialog,private router:Router) {
     }
   
     get visibleColumns() {
@@ -109,20 +111,8 @@ export class RequestHistoryComponent implements OnInit{
       this.dataSource.sort = this.sort;
     }
   
-    createCustomer() {
-      this.dialog.open(CustomerCreateUpdateComponent).afterClosed().subscribe((customer: Customer) => {
-        /**
-         * Customer is the updated customer (if the user pressed Save - otherwise it's null)
-         */
-        if (customer) {
-          /**
-           * Here we are updating our local array.
-           * You would probably make an HTTP request here.
-           */
-          this.customers.unshift(new Customer(customer));
-          this.subject$.next(this.customers);
-        }
-      });
+    createPaymentRequest() {
+      this.router.navigateByUrl('/apps/payment-request/batch-request')
     }
   
     updateCustomer(customer: Customer) {

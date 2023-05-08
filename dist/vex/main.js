@@ -2411,15 +2411,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _c0 = function () {
-  return ["/apps/social"];
+  return ["/apps/profiles/organization-profile/info"];
 };
 const _c1 = function () {
-  return ["/"];
+  return ["/apps/profiles/customer-profile"];
 };
 const _c2 = function () {
-  return ["/apps/social/timeline"];
+  return ["/"];
 };
 const _c3 = function () {
+  return ["/apps/social/timeline"];
+};
+const _c4 = function () {
   return ["/login"];
 };
 class UserMenuComponent {
@@ -2438,9 +2441,9 @@ UserMenuComponent.ɵfac = function UserMenuComponent_Factory(t) {
 UserMenuComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
   type: UserMenuComponent,
   selectors: [["vex-user-menu"]],
-  decls: 25,
-  vars: 8,
-  consts: [[1, "vex-user-menu"], ["matRipple", "", "matRippleColor", "rgb(var(--color-primary), 0.1)", 1, "vex-user-menu-item", 3, "routerLink", "click"], ["svgIcon", "mat:account_circle", 1, "vex-user-menu-item__icon", "icon-sm"], [1, "vex-user-menu-item__label"], ["svgIcon", "mat:insights", 1, "vex-user-menu-item__icon", "icon-sm"], [1, "vex-user-menu-item__badge"], ["svgIcon", "mat:settings", 1, "vex-user-menu-item__icon", "icon-sm"], [1, "border-b", "border-divider", "mx-4"], ["matRipple", "", "matRippleColor", "rgb(var(--color-primary), 0.1)", 1, "vex-user-menu-item"], ["svgIcon", "mat:switch_account", 1, "vex-user-menu-item__icon", "icon-sm"], ["svgIcon", "mat:chevron_right", 1, "vex-user-menu-item__icon", "icon-sm"], ["svgIcon", "mat:logout", 1, "vex-user-menu-item__icon", "icon-sm"]],
+  decls: 29,
+  vars: 10,
+  consts: [[1, "vex-user-menu"], ["matRipple", "", "matRippleColor", "rgb(var(--color-primary), 0.1)", 1, "vex-user-menu-item", 3, "routerLink", "click"], ["svgIcon", "mat:public", 1, "vex-user-menu-item__icon", "icon-sm"], [1, "vex-user-menu-item__label"], ["svgIcon", "mat:account_circle", 1, "vex-user-menu-item__icon", "icon-sm"], ["svgIcon", "mat:insights", 1, "vex-user-menu-item__icon", "icon-sm"], [1, "vex-user-menu-item__badge"], ["svgIcon", "mat:settings", 1, "vex-user-menu-item__icon", "icon-sm"], [1, "border-b", "border-divider", "mx-4"], ["matRipple", "", "matRippleColor", "rgb(var(--color-primary), 0.1)", 1, "vex-user-menu-item"], ["svgIcon", "mat:switch_account", 1, "vex-user-menu-item__icon", "icon-sm"], ["svgIcon", "mat:chevron_right", 1, "vex-user-menu-item__icon", "icon-sm"], ["svgIcon", "mat:logout", 1, "vex-user-menu-item__icon", "icon-sm"]],
   template: function UserMenuComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0)(1, "a", 1);
@@ -2449,7 +2452,7 @@ UserMenuComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1_
       });
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "mat-icon", 2);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "div", 3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "Your Profile");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "Organization Profile");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "a", 1);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function UserMenuComponent_Template_a_click_5_listener() {
@@ -2457,45 +2460,55 @@ UserMenuComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1_
       });
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](6, "mat-icon", 4);
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "div", 3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "Analytics");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "div", 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "NEW");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "Your Profile");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "a", 1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function UserMenuComponent_Template_a_click_11_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "a", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function UserMenuComponent_Template_a_click_9_listener() {
         return ctx.close();
       });
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](12, "mat-icon", 6);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "div", 3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](14, "Account Settings");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](10, "mat-icon", 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](12, "Analytics");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "div", 6);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](14, "NEW");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](15, "div", 7);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "div", 8);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](17, "mat-icon", 9);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "div", 3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](19, "Switch Account");
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](20, "mat-icon", 10);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "a", 1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function UserMenuComponent_Template_a_click_21_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "a", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function UserMenuComponent_Template_a_click_15_listener() {
         return ctx.close();
       });
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](22, "mat-icon", 11);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "div", 3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](24, "Sign Out");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](16, "mat-icon", 7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "div", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](18, "Account Settings");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](19, "div", 8);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "div", 9);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](21, "mat-icon", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "div", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](23, "Switch Account");
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](24, "mat-icon", 11);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](25, "a", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function UserMenuComponent_Template_a_click_25_listener() {
+        return ctx.close();
+      });
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](26, "mat-icon", 12);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "div", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28, "Sign Out");
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()();
     }
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](4, _c0));
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](5, _c0));
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](5, _c1));
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](6, _c1));
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](7, _c2));
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](6);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](6, _c2));
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](8, _c3));
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](10);
-      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](7, _c3));
+      _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction0"](9, _c4));
     }
   },
   dependencies: [_angular_material_core__WEBPACK_IMPORTED_MODULE_2__.MatRipple, _angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterLink, _angular_material_icon__WEBPACK_IMPORTED_MODULE_4__.MatIcon],
@@ -6005,7 +6018,7 @@ const routes = [{
     pathMatch: 'full'
   }, {
     path: '',
-    loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_vex_components_breadcrumbs_breadcrumbs_module_ts-src_vex_components_page-layout_p-a8870b"), __webpack_require__.e("default-node_modules_angular_material_fesm2020_paginator_mjs-node_modules_angular_material_fe-0bf83c"), __webpack_require__.e("common"), __webpack_require__.e("src_app_pages_dashboards_dashboard-analytics_dashboard-analytics_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/dashboards/dashboard-analytics/dashboard-analytics.module */ 2848)).then(m => m.DashboardAnalyticsModule)
+    loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_vex_components_breadcrumbs_breadcrumbs_module_ts-src_vex_components_page-layout_p-a8870b"), __webpack_require__.e("default-node_modules_angular_material_fesm2020_paginator_mjs-node_modules_angular_material_fe-0bf83c"), __webpack_require__.e("default-src_vex_components_widgets_widget-quick-value-center_widget-quick-value-center_module_ts"), __webpack_require__.e("src_app_pages_dashboards_dashboard-analytics_dashboard-analytics_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/dashboards/dashboard-analytics/dashboard-analytics.module */ 2848)).then(m => m.DashboardAnalyticsModule)
   }, {
     path: 'apps',
     children: [{
@@ -6013,10 +6026,13 @@ const routes = [{
       loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_vex_animations_fade-in-up_animation_ts-node_modules_angular_material_fesm2020_che-ca529f"), __webpack_require__.e("default-src_vex_components_breadcrumbs_breadcrumbs_module_ts-src_vex_components_page-layout_p-a8870b"), __webpack_require__.e("default-node_modules_angular_material_fesm2020_paginator_mjs-node_modules_angular_material_fe-0bf83c"), __webpack_require__.e("default-src_vex_animations_stagger_animation_ts-src_app_pages_apps_aio-table_interfaces_custo-f8e805"), __webpack_require__.e("default-src_app_pages_apps_aio-table_aio-table-routing_module_ts-src_app_pages_apps_aio-table-16633c"), __webpack_require__.e("src_app_pages_apps_aio-table_aio-table_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/apps/aio-table/aio-table.module */ 9566)).then(m => m.AioTableModule)
     }, {
       path: 'user-management',
-      loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_vex_animations_fade-in-up_animation_ts-node_modules_angular_material_fesm2020_che-ca529f"), __webpack_require__.e("default-src_vex_components_breadcrumbs_breadcrumbs_module_ts-src_vex_components_page-layout_p-a8870b"), __webpack_require__.e("default-node_modules_angular_material_fesm2020_paginator_mjs-node_modules_angular_material_fe-0bf83c"), __webpack_require__.e("default-src_vex_animations_stagger_animation_ts-src_app_pages_apps_aio-table_interfaces_custo-f8e805"), __webpack_require__.e("src_app_pages_apps_user-managment_user-managment_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/apps/user-managment/user-managment.module */ 505)).then(m => m.UserManagementModule)
+      loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_vex_animations_fade-in-up_animation_ts-node_modules_angular_material_fesm2020_che-ca529f"), __webpack_require__.e("default-src_vex_components_breadcrumbs_breadcrumbs_module_ts-src_vex_components_page-layout_p-a8870b"), __webpack_require__.e("default-node_modules_angular_material_fesm2020_paginator_mjs-node_modules_angular_material_fe-0bf83c"), __webpack_require__.e("default-src_vex_animations_stagger_animation_ts-src_app_pages_apps_aio-table_interfaces_custo-f8e805"), __webpack_require__.e("default-src_app_pages_apps_user-managment_user-managment_component_ts"), __webpack_require__.e("src_app_pages_apps_user-managment_user-managment_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/apps/user-managment/user-managment.module */ 505)).then(m => m.UserManagementModule)
     }, {
       path: 'payment-request',
-      loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_vex_animations_fade-in-up_animation_ts-node_modules_angular_material_fesm2020_che-ca529f"), __webpack_require__.e("default-src_vex_components_breadcrumbs_breadcrumbs_module_ts-src_vex_components_page-layout_p-a8870b"), __webpack_require__.e("default-node_modules_angular_material_fesm2020_paginator_mjs-node_modules_angular_material_fe-0bf83c"), __webpack_require__.e("default-src_vex_animations_stagger_animation_ts-src_app_pages_apps_aio-table_interfaces_custo-f8e805"), __webpack_require__.e("default-src_app_pages_apps_aio-table_aio-table-routing_module_ts-src_app_pages_apps_aio-table-16633c"), __webpack_require__.e("common"), __webpack_require__.e("src_app_pages_apps_payment-request_payment-request_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/apps/payment-request/payment-request.module */ 1033)).then(m => m.PaymentRequestModule)
+      loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_vex_animations_fade-in-up_animation_ts-node_modules_angular_material_fesm2020_che-ca529f"), __webpack_require__.e("default-src_vex_components_breadcrumbs_breadcrumbs_module_ts-src_vex_components_page-layout_p-a8870b"), __webpack_require__.e("default-node_modules_angular_material_fesm2020_paginator_mjs-node_modules_angular_material_fe-0bf83c"), __webpack_require__.e("default-src_vex_animations_stagger_animation_ts-src_app_pages_apps_aio-table_interfaces_custo-f8e805"), __webpack_require__.e("default-src_app_pages_apps_aio-table_aio-table-routing_module_ts-src_app_pages_apps_aio-table-16633c"), __webpack_require__.e("default-src_vex_components_secondary-toolbar_secondary-toolbar_module_ts-node_modules_angular-77775d"), __webpack_require__.e("src_app_pages_apps_payment-request_payment-request_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/apps/payment-request/payment-request.module */ 1033)).then(m => m.PaymentRequestModule)
+    }, {
+      path: 'profiles',
+      loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_vex_animations_fade-in-up_animation_ts-node_modules_angular_material_fesm2020_che-ca529f"), __webpack_require__.e("default-src_vex_components_breadcrumbs_breadcrumbs_module_ts-src_vex_components_page-layout_p-a8870b"), __webpack_require__.e("default-node_modules_angular_material_fesm2020_paginator_mjs-node_modules_angular_material_fe-0bf83c"), __webpack_require__.e("default-src_vex_animations_stagger_animation_ts-src_app_pages_apps_aio-table_interfaces_custo-f8e805"), __webpack_require__.e("default-src_app_pages_apps_aio-table_aio-table-routing_module_ts-src_app_pages_apps_aio-table-16633c"), __webpack_require__.e("default-src_vex_components_secondary-toolbar_secondary-toolbar_module_ts-node_modules_angular-77775d"), __webpack_require__.e("default-src_vex_components_widgets_widget-quick-value-center_widget-quick-value-center_module_ts"), __webpack_require__.e("default-src_app_pages_apps_user-managment_user-managment_component_ts"), __webpack_require__.e("src_app_pages_apps_profiles_profiles_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/apps/profiles/profiles.module */ 8613)).then(m => m.ProfilesModule)
     }]
   }, {
     path: 'pages',
@@ -6029,7 +6045,7 @@ const routes = [{
     }]
   }, {
     path: 'documentation',
-    loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_vex_components_breadcrumbs_breadcrumbs_module_ts-src_vex_components_page-layout_p-a8870b"), __webpack_require__.e("common"), __webpack_require__.e("src_app_pages_documentation_documentation_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/documentation/documentation.module */ 8324)).then(m => m.DocumentationModule)
+    loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_vex_components_breadcrumbs_breadcrumbs_module_ts-src_vex_components_page-layout_p-a8870b"), __webpack_require__.e("src_app_pages_documentation_documentation_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/documentation/documentation.module */ 8324)).then(m => m.DocumentationModule)
   }, {
     path: '**',
     loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_pages_errors_error-404_error-404_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./pages/pages/errors/error-404/error-404.module */ 667)).then(m => m.Error404Module)

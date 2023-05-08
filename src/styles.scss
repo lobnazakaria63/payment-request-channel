@@ -21,7 +21,7 @@
 /**
   Uncomment the below code and adjust the values to fit your colors, the application will automatically adjust
  */
-:root {
+// :root {
   // --color-primary: blue;
   // --color-primary-contrast: white;
 
@@ -30,7 +30,7 @@
 
   // --color-warn: yellow;
   // --color-warn-contrast: black;
-}
+// }
 
 .dense-2 {
   @include mat.all-component-densities(-2);

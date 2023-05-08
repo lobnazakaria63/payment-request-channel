@@ -9,6 +9,7 @@ export class Customer {
   currency:string;
   city: string;
   phoneNumber: string;
+  date:Date;
   mail: string;
   labels: any;
 
@@ -25,6 +26,7 @@ export class Customer {
     this.mail = customer.mail;
     this.currency =customer.currency;
     this.labels = customer.labels;
+    this.date = customer.date
   }
 
   get name() {
