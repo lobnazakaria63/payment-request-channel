@@ -1,0 +1,225 @@
+<div class="bg-app-bar px-6 h-16 border-b sticky left-0 flex items-center">
+    <h2 class="title my-0 ltr:pr-4 rtl:pl-4 ltr:mr-4 rtl:ml-4 ltr:border-r rtl:border-l hidden sm:block flex-none">
+        <button mat-icon-button class="w-50 mr-2" color="primary" (click)="onBackClick()">
+            <mat-icon class="add-course-btn" svgIcon="mat:keyboard_backspace"></mat-icon>
+        </button> Manual Payment
+    </h2>
+</div>
+
+<div class="mt-4 text-right mb-4">
+    <button [disabled]="requests.invalid" mat-raised-button class="w-50 mr-2 " color="primary" (click)="addRequest()">
+        <mat-icon class="add-course-btn" svgIcon="mat:add"></mat-icon>
+        Add Request
+    </button> 
+</div>
+<form [formGroup]="requestForm">
+        <table mat-table formArrayName="request" [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- beneficiary Column -->
+            <ng-container matColumnDef="beneficiary">
+              <th mat-header-cell *matHeaderCellDef> Beneficiaries</th>
+              <td mat-cell *matCellDef="let element;let i = index;" [formGroupName]="i">
+                <div class="p-3 dense-2">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-label class="form-label">Beneficiary</mat-label>
+                        <input  matInput  [matAutocomplete]="auto" formControlName="beneficiary">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                {{option}}
+                            </mat-option>
+                            <mat-option >
+                                <button mat-button color="primary" (click)="navToCreateNew()">New Beneficiary</button>
+                            </mat-option>
+                        </mat-autocomplete>
+                        <!-- <mat-select (selectionChange)="onSelectBeneficiary($event)" formControlName="beneficiary" required>
+                            <mat-option value="1">beneficiary 1</mat-option>
+                            <mat-option value="2">beneficiary 2</mat-option>
+                            <mat-option value="3">beneficiary 3</mat-option>
+                        </mat-select> -->
+                    </mat-form-field>
+                </div> 
+                
+              </td>
+            </ng-container>
+          
+            <!-- account Column -->
+            <ng-container matColumnDef="account">
+              <th mat-header-cell *matHeaderCellDef> Accounts </th>
+              <td mat-cell *matCellDef="let element;let i = index;" [formGroupName]="i"> 
+                <div class="p-3 dense-2">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-label class="form-label">Account</mat-label>
+                        <input  matInput  [matAutocomplete]="auto" formControlName="account">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                {{option}}
+                            </mat-option>
+                            <mat-option >
+                                <button mat-button color="primary" (click)="navToCreateNew()">New Account</button>
+                            </mat-option>
+                        </mat-autocomplete>
+                        <!-- <mat-select (selectionChange)="onSelectAccount($event)" formControlName="account" required>
+                            <mat-option value="1">account 1</mat-option>
+                            <mat-option value="2">account 2</mat-option>
+                            <mat-option value="3">account 3</mat-option>
+                        </mat-select> -->
+                    </mat-form-field>
+                </div>
+                
+              </td>
+            </ng-container>
+          
+            <!-- transaction Column -->
+            <ng-container matColumnDef="transaction">
+              <th mat-header-cell *matHeaderCellDef> Transaction </th>
+              <td mat-cell *matCellDef="let element;let i = index;" [formGroupName]="i">
+                <button mat-raised-button class="w-50 mb-4" color="primary" (click)="openTransactionDialog(i)">
+                    Add Transaction
+                </button>
+              </td>
+            </ng-container>
+          
+            <!-- actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> </th>
+              <td mat-cell *matCellDef="let element;let i = index;">
+                <button [disabled]="1 === requests.controls.length" mat-icon-button class="w-50" color="warn" (click)="deleteRequest(i)">
+                    <mat-icon class="add-course-btn" svgIcon="mat:delete"></mat-icon>
+                </button>
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+        </table>
+        <div class="save-btn text-right mr-4 mt-8">
+            <button [disabled]="requests.invalid" mat-raised-button color="primary" (click)="submit()">
+                Submit
+            </button>
+        </div>
+</form>
+
+
+<!-- <mat-stepper #stepper >
+    <mat-step>
+        <ng-template matStepLabel>Upload File</ng-template>
+        <ng-template matStepContent>
+            <div class="flex justify-center items-center mt-2">
+                <label class="drop-container">
+                    <span class="drop-title">Drop files here</span>
+                    or
+                    <input type="file" (change)="dropped($event)" accept="xlsx/*" required>
+                </label>
+            </div>
+            <div class="text-right">
+                <button mat-raised-button color="primary" matStepperNext>Proceed</button>
+            </div>
+        </ng-template>
+    </mat-step>
+    <mat-step >
+        <ng-template matStepLabel>Mapping</ng-template>
+        <ng-template matStepContent>
+            <h3 class="text-xl font-semibold text-center mb-8">Import the following data from your document and ensure that first row holds the columns headers</h3>
+            <div class="grid md:grid-cols-2 mt-2 w-4/5 m-auto">
+                <div class="p-3">
+                    <mat-label class="form-label font-bold">Customer First Name *</mat-label>
+                </div>
+                <div class="p-3">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-select (selectionChange)="onSelectHeader($event,'customer_firstName')" required>
+                            <mat-option *ngFor="let col of originColArr" [value]="col">{{col}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 mt-2 w-4/5 m-auto">
+                <div class="p-3">
+                    <mat-label class="form-label font-bold">Customer Last Name *</mat-label>
+                </div>
+                <div class="p-3">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-select (selectionChange)="onSelectHeader($event,'customer_lastName')" required>
+                            <mat-option *ngFor="let col of data[0]" [value]="col">{{col}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 mt-2 w-4/5 m-auto">
+                <div class="p-3">
+                    <mat-label class="form-label font-bold">Payment Amount *</mat-label>
+                </div>
+                <div class="p-3">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-select (selectionChange)="onSelectHeader($event,'payment_amount')" required>
+                            <mat-option *ngFor="let col of data[0]" [value]="col">{{col}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 mt-2 w-4/5 m-auto">
+                <div class="p-3">
+                    <mat-label class="form-label font-bold">Currency *</mat-label>
+                </div>
+                <div class="p-3">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-select (selectionChange)="onSelectHeader($event,'currency')" required>
+                            <mat-option *ngFor="let col of data[0]" [value]="col">{{col}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 mt-2 w-4/5 m-auto">
+                <div class="p-3">
+                    <mat-label class="form-label font-bold">Status *</mat-label>
+                </div>
+                <div class="p-3">
+                    <mat-form-field  class="form-field w-full" appearance="outline">
+                        <mat-select (selectionChange)="onSelectHeader($event,'status')" required>
+                            <mat-option *ngFor="let col of data[0]" [value]="col">{{col}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            
+            <div class="text-right">
+                <button mat-raised-button color="primary" (click)="onConfirmMApping()" matStepperNext>Proceed</button>
+            </div>
+            <div class="text-left">
+                <button mat-raised-button color="accent"  matStepperPrevious>Back</button>
+            </div>
+        </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Request Table</ng-template>
+      <ng-template matStepContent>
+        <h3 class="text-xl font-semibold text-center mb-8">The following data will be imported from your document</h3>
+        <div class="w-full overflow-x-auto">
+          <table class="table-auto sjs-table w-full p-0">
+              <tbody class="w-full">
+                  <tr *ngFor="let row of data">
+                      <td *ngFor="let val of row">
+                          {{val}}
+                      </td>
+                  </tr>
+              </tbody>
+          </table>  
+
+          </div>
+          <div class="text-right mt-4">
+              <button mat-raised-button color="primary" (click)="onFinishMApping()">Finish</button>
+          </div>
+          <div class="text-left">
+              <button mat-raised-button color="accent"  matStepperPrevious>Back</button>
+          </div>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Result Request Table</ng-template>
+        <ng-template matStepContent>
+
+        </ng-template>
+    </mat-step>
+</mat-stepper> -->

@@ -112,7 +112,7 @@ export class RequestHistoryComponent implements OnInit{
     }
   
     createPaymentRequest() {
-      this.router.navigateByUrl('/apps/payment-request/batch-request')
+      this.router.navigateByUrl('/apps/payment-request/payment-request')
     }
   
     updateCustomer(customer: Customer) {

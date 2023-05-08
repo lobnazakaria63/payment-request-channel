@@ -170,7 +170,7 @@ export class AppComponent {
             type: 'link',
             label: 'Make Payment',
             icon: 'mat:attach_money',
-            route: '/apps/payment-request/batch-request'
+            route: '/apps/payment-request/payment-request'
           },
         ]
       },

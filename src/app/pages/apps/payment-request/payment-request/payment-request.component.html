@@ -1,0 +1,44 @@
+<vex-page-layout>
+
+    <vex-page-layout-header class="pb-16  flex flex-col items-start justify-center">
+      <div class="w-full flex flex-col sm:flex-row justify-between">
+        <div>
+          <h1 class="title mt-0 mb-1"> Payment Request</h1>
+          <vex-breadcrumbs [crumbs]="['Apps', 'Payment Request']"></vex-breadcrumbs>
+        </div>
+      </div>
+    </vex-page-layout-header>
+  
+    <vex-page-layout-content class="-mt-6 ">
+        <div class="card overflow-auto -mt-16 pb-8" *ngIf="!requestMode">
+            <div class="bg-app-bar px-6 h-16 border-b sticky left-0 flex items-center">
+                <h2 class="title my-0 ltr:pr-4 rtl:pl-4 ltr:mr-4 rtl:ml-4 ltr:border-r rtl:border-l hidden sm:block flex-none">
+                  Make Payment
+                </h2>
+            </div>
+            <div class="empty-list">
+                <lottie-player class="lotti-img mb-2" src="/assets/lottieJson/96753-office-accountant.json"  background="transparent"  speed="1" loop  autoplay >
+                </lottie-player>
+                <div class="text-center no-contact-label">
+                    <button mat-raised-button class="w-50 mr-2" color="primary" (click)="onRequestModeClick('browse')">
+                        <mat-icon class="add-course-btn" svgIcon="mat:cloud_download"></mat-icon>
+                        Browse File
+                    </button>
+                    <button mat-raised-button class="w-50" color="accent" (click)="onRequestModeClick('manual')">
+                        <mat-icon class="add-course-btn" svgIcon="mat:add"></mat-icon>
+                        Add Manually
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card overflow-auto -mt-16 pb-8" *ngIf="requestMode == 'browse'">
+            <browse-payments (onBack)="onRequestModeClick(null)"></browse-payments>
+        </div>
+        <div class="card overflow-auto -mt-16 pb-8" *ngIf="requestMode == 'manual'">
+            <manual-payment (onBack)="onRequestModeClick(null)"></manual-payment>
+        </div>
+        
+  
+    </vex-page-layout-content>
+  
+</vex-page-layout>

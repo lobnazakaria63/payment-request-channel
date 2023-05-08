@@ -2,20 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { QuicklinkModule } from 'ngx-quicklink';
 import { VexRoutes } from '../../../../@vex/interfaces/vex-route.interface';
-import { SingleRequestComponent } from './single-request/single-request.component';
-import { BatchRequestComponent } from './batch-request/batch-request.component';
+import { BatchRequestComponent } from './payment-request/payment-request.component';
 import { RequestHistoryComponent } from './request-history/request-history.component';
 
 
 const routes: VexRoutes = [
   { 
-    path:'single-request',
-    component:SingleRequestComponent,
-    data: {
-        toolbarShadowEnabled: false
-    }
-  },{ 
-    path:'batch-request',
+    path:'payment-request',
     component:BatchRequestComponent,
     data: {
         toolbarShadowEnabled: false

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output, ViewChild } from "@angular/core";
 import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from "@angular/material/form-field";
 import { NgxFileDropEntry } from "ngx-file-drop";
@@ -8,8 +8,9 @@ import * as XLSX from 'xlsx';
 
 type AOA = any[][];
 @Component({
-    templateUrl:'./batch-request.component.html',
-    styleUrls:['./batch-request.component.scss'],
+    selector:'browse-payments',
+    templateUrl:'./browse-payments.component.html',
+    styleUrls:['./browse-payments.component.scss'],
     animations: [
         fadeInUp400ms,
         stagger40ms
@@ -24,7 +25,7 @@ type AOA = any[][];
       ]
 }) 
 
-export class BatchRequestComponent implements OnInit{
+export class BrowsePaymentComponent implements OnInit{
 
     batchRequestForm:FormGroup;
     fileToUpload: File | null = null;
@@ -34,6 +35,7 @@ export class BatchRequestComponent implements OnInit{
     files: NgxFileDropEntry[] = [];
     wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
     @ViewChild('signatureInput') fileInput;
+    @Output() onBack:EventEmitter<any> = new EventEmitter;
     constructor(
         private _fb:FormBuilder,
     ){}
@@ -124,5 +126,8 @@ export class BatchRequestComponent implements OnInit{
     }
     delete(){
         
+    }
+    onBackClick(){
+        this.onBack.emit()
     }
 }

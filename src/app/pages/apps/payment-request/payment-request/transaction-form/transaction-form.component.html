@@ -1,0 +1,83 @@
+<div @fadeInUp class="bg-app-bar px-6 h-16 border-b sticky left-0 flex items-center">
+    <h2 class="title my-0 ltr:pr-4 rtl:pl-4 ltr:mr-4 rtl:ml-4 ltr:border-r rtl:border-l hidden sm:block flex-none">
+      Add Transaction
+    </h2>
+</div>
+<form [formGroup]="transactionForm" class="p-4">
+    <div class="grid md:grid-cols-1 mt-2">
+
+        <div class="p-3 dense-2">
+            <mat-form-field  class="form-field w-full" appearance="outline">
+                <mat-label class="form-label">Amount </mat-label>
+                <input type="number" matInput formControlName="amount">
+            </mat-form-field>
+            <div *ngIf=" fTransaction['amount'].errors && (fTransaction['amount'].touched || fTransaction['amount'].dirty)" class="invalid-feedback">
+                <div *ngIf="fTransaction['amount'].errors['required']">
+                    Amount is required
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 dense-2">
+            <mat-form-field  class="form-field w-full" appearance="outline">
+                <mat-label class="form-label">Currency </mat-label>
+                <mat-select formControlName="currency" required>
+                    <mat-option value="1">account 1</mat-option>
+                    <mat-option value="2">account 2</mat-option>
+                    <mat-option value="3">account 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div *ngIf=" fTransaction['currency'].errors && (fTransaction['currency'].touched || fTransaction['currency'].dirty)" class="invalid-feedback">
+                <div *ngIf="fTransaction['currency'].errors['required']">
+                    Currency is required
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 dense-2">
+            <mat-form-field class="form-field w-full" appearance="outline">
+                <mat-label>Choose a date</mat-label>
+                <input matInput formControlName="transferDate" [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div *ngIf=" fTransaction['transferDate'].errors && (fTransaction['transferDate'].touched || fTransaction['transferDate'].dirty)" class="invalid-feedback">
+                <div *ngIf="fTransaction['transferDate'].errors['required']">
+                    Transfel Date is required
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 dense-2">
+            <mat-form-field class="form-field w-full" appearance="outline">
+                <mat-label>Reason</mat-label>
+                <textarea matInput formControlName="reason" ></textarea>
+            </mat-form-field>
+            <div *ngIf=" fTransaction['reason'].errors && (fTransaction['reason'].touched || fTransaction['reason'].dirty)" class="invalid-feedback">
+                <div *ngIf="fTransaction['reason'].errors['required']">
+                    Reason is required
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 dense-2">
+            <mat-form-field class="form-field w-full" appearance="outline">
+                <mat-label>More Info</mat-label>
+                <textarea matInput formControlName="moreInfo" ></textarea>
+            </mat-form-field>
+            <div *ngIf=" fTransaction['moreInfo'].errors && (fTransaction['moreInfo'].touched || fTransaction['moreInfo'].dirty)" class="invalid-feedback">
+                <div *ngIf="fTransaction['moreInfo'].errors['required']">
+                    More Infois required
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="save-btn text-right mr-4">
+        <button  mat-raised-button color="primary" (click)="submit()">
+            Submit
+        </button>
+    </div>
+</form>
